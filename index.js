@@ -24,13 +24,13 @@ async function run() {
     const database = client.db("Portfolio");
     const projectInfo = database.collection("projectInfo");
 
-    app.get("/projects", async (req, res) => {
+    app.get("/project", async (req, res) => {
       const query = projectInfo.find({});
       const result = await query.toArray();
       res.json(result);
     });
 
-    app.get("/projects/:id", async (req, res) => {
+    app.get("/project/:id", async (req, res) => {
       const id = req.params.id;
       console.log(id);
       const searchQuery = { _id: ObjectId(id) };
